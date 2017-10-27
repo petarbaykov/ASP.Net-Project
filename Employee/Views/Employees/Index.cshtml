@@ -1,0 +1,46 @@
+﻿@model Employees.Models.EmployeesListViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <a href="/Employees/Create/">Създай</a>
+    <div> 
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Fname</th>
+                    <th>Lname</th>
+                    <th>Created At</th>
+                    <th>Updated At</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.EmployeesList != null)
+                {
+                foreach (var employee in Model.EmployeesList)
+                {
+                    <tr>
+                        <td>@employee.FName</td>
+                        <td>@employee.LName</td>
+                        <td>
+                            <a href="/Employees/Update/@employee.Id" class="btn btn-default">Update</a>
+                            <a href="/Employees/Delete/@employee.Id" class="btn btn-danger">Delete</a>
+                            <a href="/Tasks/Index/@employee.Id" class="btn btn-info">Задачи</a>
+                        </td>
+                    </tr>
+                }
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,14 @@
+﻿@model Employee.Models.TasksListViewModel
+@{
+    ViewBag.Title = "Index";
+}
+<a href="/Tasks/Create/@Model.EmployeeId">Create</a>
+@foreach (var task in Model.ListTasks)
+{
+        @task.Title
+        @task.Description
+        @task.DeadLine
+    <a href="/Tasks/Update/@task.Id" class="btn btn-default">Update</a>
+    <a href="/TAsks/Delete/@task.Id" class="btn btn-danger">Delete</a>
+}
+

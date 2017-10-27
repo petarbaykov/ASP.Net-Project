@@ -1,0 +1,53 @@
+﻿@model Employee.Models.TaskViewModel
+@{
+    ViewBag.Title = "Create";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+</head>
+<body>
+    <h2>Create</h2>
+
+    @using (Html.BeginForm("Update", "Tasks"))
+    {
+        @Html.ValidationSummary()
+        @Html.HiddenFor(model => model.EmployeeId)
+        <div class="container">
+            <div class="form-group">
+                <div class="col-md-3">
+                    @Html.LabelFor(model => model.Title)
+                    @Html.TextBoxFor(model => model.Title, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-3">
+                    @Html.LabelFor(model => model.Description)
+                    @Html.TextBoxFor(model => model.Description, new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-3">
+
+
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-3">
+                    @Html.LabelFor(model => model.DeadLine)
+                    @Html.TextBoxFor(model => model.DeadLine, new { @class = "datepicker", @type = "date" })
+                </div>
+            </div>
+            <div>
+
+                <input type="submit" value="Create" class="btn btn-success" />
+            </div>
+        </div>
+
+    }
+</body>
+</html>
